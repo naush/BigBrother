@@ -1,17 +1,17 @@
-### Big Brother Is Watching You
+# Big Brother Is Watching You
 
-A script to retrieve time entries for users in your organization.
+A script to retrieve time entries for users in your Harvest organization.
 
-### Environment
+## Environment
 
-Set Harvest account subdomain, email, and password environment variables in `.env` file. See `.env.example` for exapmle.
+Set Harvest account subdomain, email, and password environment variables in `.env` file.
 
 ```
 $ cp .env.example .env
 $ source .env
 ```
 
-### Execute example script
+## Execute sample script
 
 ```
 $ ruby watch 2017-07-09 2017-07-16
@@ -20,7 +20,7 @@ $ ruby watch 2017-07-09 2017-07-16
 #   -2| The end of the week (default: Sunday of current week)
 ```
 
-### Harvest client library
+## Harvest client library
 
 Custom Ruby client library for Harvest.
 
@@ -38,7 +38,7 @@ people = client.people(
   'is_active'  => true
 )
 
-# Retrieve time entries given user id and date range
+# Retrieve time entries given person id and date range
 time_entries = client.time_entries(
   person_id: '12345',
   from: '2017-07-09',
