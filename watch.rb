@@ -2,9 +2,9 @@ require 'date'
 require_relative 'harvest/client'
 
 client = Harvest::Client.new(
-  subdomain: ENV['SUBDOMAIN'],
-  email: ENV['EMAIL'],
-  password: ENV['PASSWORD']
+  subdomain: ENV['HARVEST_SUBDOMAIN'],
+  email: ENV['HARVEST_EMAIL'],
+  password: ENV['HARVEST_PASSWORD']
 )
 
 def colorize(color_code, string)
