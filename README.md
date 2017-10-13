@@ -11,10 +11,10 @@ $ cp .env.example .env
 $ source .env
 ```
 
-## Execute sample script
+## Execute sample reports
 
 ```
-$ ruby watch 2017-07-09 2017-07-16
+$ ruby reports/pending_approval 2017-07-09 2017-07-16
 # Usage: watch [options]
 #   -1| The beginning of the week (default: Monday of current week)
 #   -2| The end of the week (default: Sunday of current week)

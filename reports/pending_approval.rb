@@ -1,5 +1,5 @@
 require 'date'
-require_relative 'harvest/client'
+require_relative '../harvest/client'
 
 client = Harvest::Client.new(
   subdomain: ENV['HARVEST_SUBDOMAIN'],
@@ -63,3 +63,4 @@ people.each do |person|
 
   puts personalize_messages(person, time_entries)
 end
+
