@@ -20,6 +20,10 @@ $ ruby watch 2017-07-09 2017-07-16
 #   -2| The end of the week (default: Sunday of current week)
 ```
 
+```
+$ ruby reports/billable_hours.rb
+```
+
 ## Harvest client library
 
 Custom Ruby client library for Harvest.

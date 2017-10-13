@@ -1,0 +1,22 @@
+business_time:
+  work_week:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  work_hours:
+    :mon: ["9:00","17:00"]
+    :tue: ["9:00","17:00"]
+    :wed: ["9:00","17:00"]
+    :thu: ["9:00","17:00"]
+    :fri: ["9:00","13:00"]
+  holidays:
+    - January 1st, 2017
+    - May 29th, 2017
+    - July 4th, 2017
+    - September 4th, 2017
+    - November 23rd, 2017
+    - November 24th, 2017
+    - December 25th, 2017
+    - Dec 25th, 2017

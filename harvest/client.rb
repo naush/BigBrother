@@ -49,9 +49,26 @@ module Harvest
       end
     end
 
-    def time_entries(person_id:, from:, to:)
+    def total_billable_hours(person_id:, from:, to:)
+      time_entries(
+        person_id: person_id,
+        from: from,
+        to: to,
+        billable: true
+      ).inject(0) do |sum, entry|
+        sum + entry['day_entry']['hours'].to_f
+      end
+    end
+
+    def time_entries(person_id:, from:, to:, billable: false)
       uri = URI.parse("https://#{host}/people/#{person_id}/entries")
-      params = { from: from, to: to }
+
+      if billable
+        params = { from: from, to: to, billable: 'yes' }
+      else
+        params = { from: from, to: to }
+      end
+
       uri.query = URI.encode_www_form(params)
       response = connection.get(uri.request_uri, headers)
       JSON.parse(response.body)
