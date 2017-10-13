@@ -48,4 +48,11 @@ time_entries = client.time_entries(
   from: '2017-07-09',
   to: '2017-07-16'
 )
+
+# Retrieve total billable hours given person id and date range
+total_billable_hours = client.total_billable_hours(
+  person_id: '12345',
+  from: '2017-07-09',
+  to: '2017-07-16'
+)
 ```
