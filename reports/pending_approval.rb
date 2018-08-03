@@ -48,7 +48,7 @@ if from.nil? || to.nil?
 end
 
 people = client.people(
-  'department' => 'Programmer - NY',
+  'roles' => 'New York',
   'is_active'  => true
 )
 

@@ -44,7 +44,11 @@ module Harvest
 
       people.select do |person|
         filters.all? do |key, value|
-          person[key] == value
+          if person[key.to_s].is_a?(Array)
+            person[key.to_s].include?(value)
+          else
+            person[key.to_s] == value
+          end
         end
       end
     end

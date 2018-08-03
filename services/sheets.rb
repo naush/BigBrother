@@ -56,11 +56,14 @@ module Services
         ],
       }
 
-      service.batch_spreadsheet_value_update_by_data_filter(
+      response = service.batch_spreadsheet_value_update_by_data_filter(
         spreadsheet_id,
         batch_update_values_by_data_filter_request_object,
         options: {}
       )
+
+      p batch_update_values_by_data_filter_request_object
+      p response
     end
   end
 end
