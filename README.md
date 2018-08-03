@@ -43,7 +43,7 @@ people = client.people(
 )
 
 # Retrieve time entries given person id and date range
-time_entries = client.time_entries(
+personal_time_entries = client.personal_time_entries(
   person_id: '12345',
   from: '2017-07-09',
   to: '2017-07-16'

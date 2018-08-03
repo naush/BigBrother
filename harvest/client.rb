@@ -36,6 +36,23 @@ module Harvest
       http
     end
 
+    def projects(filters={})
+      uri = URI.parse("https://#{host}/projects")
+      response = connection.get(uri.request_uri, headers)
+      json = JSON.parse(response.body)
+      projects = json.collect { |object| object['project'] }
+
+      projects.select do |project|
+        filters.all? do |key, value|
+          if project[key.to_s].is_a?(Array)
+            project[key.to_s].include?(value)
+          else
+            project[key.to_s] == value
+          end
+        end
+      end
+    end
+
     def people(filters={})
       uri = URI.parse("https://#{host}/people")
       response = connection.get(uri.request_uri, headers)
@@ -54,7 +71,7 @@ module Harvest
     end
 
     def total_billable_hours(person_id:, from:, to:)
-      time_entries(
+      personal_time_entries(
         person_id: person_id,
         from: from,
         to: to,
@@ -64,7 +81,16 @@ module Harvest
       end
     end
 
-    def time_entries(person_id:, from:, to:, billable: false)
+    def project_time_entries(project_id:, from:, to:)
+      uri = URI.parse("https://#{host}/projects/#{project_id}/entries")
+      params = { from: from, to: to }
+      uri.query = URI.encode_www_form(params)
+      response = connection.get(uri.request_uri, headers)
+      json = JSON.parse(response.body)
+      entries = json.collect { |object| object['day_entry'] }
+    end
+
+    def personal_time_entries(person_id:, from:, to:, billable: false)
       uri = URI.parse("https://#{host}/people/#{person_id}/entries")
 
       if billable

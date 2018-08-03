@@ -55,7 +55,7 @@ people = client.people(
 puts "For the week of #{colorize(32, from)} to #{colorize(32, to)}:"
 
 people.each do |person|
-  time_entries = client.time_entries(
+  time_entries = client.personal_time_entries(
     person_id: person['id'],
     from: from,
     to: to
